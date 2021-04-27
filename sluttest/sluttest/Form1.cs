@@ -15,6 +15,7 @@ namespace sluttest
         public Form1()
         {
             InitializeComponent();
+            List<string> tasks = new List<string>();
         }
     }
 }
