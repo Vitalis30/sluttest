@@ -1,0 +1,10 @@
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\bin\Debug\sluttest.exe.config
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\bin\Debug\sluttest.exe
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\bin\Debug\sluttest.pdb
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.csprojAssemblyReference.cache
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.Form1.resources
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.Properties.Resources.resources
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.csproj.GenerateResource.cache
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.csproj.CoreCompileInputs.cache
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.exe
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.pdb

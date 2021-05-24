@@ -29,21 +29,22 @@ namespace sluttest
         /// </summary>
         private void InitializeComponent()
         {
-            this.members = new System.Windows.Forms.ListBox();
+            this.members_listbox = new System.Windows.Forms.ListBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.todo_dataGridView = new System.Windows.Forms.DataGridView();
             this.add_member = new System.Windows.Forms.Button();
             this.add_todo = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.todo_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // members
+            // members_listbox
             // 
-            this.members.FormattingEnabled = true;
-            this.members.Location = new System.Drawing.Point(12, 12);
-            this.members.Name = "members";
-            this.members.Size = new System.Drawing.Size(120, 199);
-            this.members.TabIndex = 0;
+            this.members_listbox.FormattingEnabled = true;
+            this.members_listbox.Location = new System.Drawing.Point(12, 12);
+            this.members_listbox.Name = "members_listbox";
+            this.members_listbox.Size = new System.Drawing.Size(120, 199);
+            this.members_listbox.TabIndex = 0;
             // 
             // monthCalendar1
             // 
@@ -68,6 +69,7 @@ namespace sluttest
             this.add_member.TabIndex = 3;
             this.add_member.Text = "Add member";
             this.add_member.UseVisualStyleBackColor = true;
+            this.add_member.Click += new System.EventHandler(this.add_member_Click);
             // 
             // add_todo
             // 
@@ -87,7 +89,7 @@ namespace sluttest
             this.Controls.Add(this.add_member);
             this.Controls.Add(this.todo_dataGridView);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.members);
+            this.Controls.Add(this.members_listbox);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.todo_dataGridView)).EndInit();
@@ -97,11 +99,12 @@ namespace sluttest
 
         #endregion
 
-        private System.Windows.Forms.ListBox members;
+        private System.Windows.Forms.ListBox members_listbox;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.DataGridView todo_dataGridView;
         private System.Windows.Forms.Button add_member;
         private System.Windows.Forms.Button add_todo;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
