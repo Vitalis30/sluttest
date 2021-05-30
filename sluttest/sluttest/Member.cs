@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace sluttest
 {
@@ -10,8 +11,7 @@ namespace sluttest
     {
         private string username;
         private string realName;
-        private List<string> tasks;
-        private List<DateTime> taskDueTime;
+        public BindingList<TaskList> tasks = new BindingList<TaskList>();
         
 
         //Add new member
@@ -52,33 +52,10 @@ namespace sluttest
             }
         }
 
-        public List<string> Tasks
-        {
-            get
-            {
-                return tasks;
-            }
 
-            set
-            {
-                tasks = value;
-            }
-        }
-
-        public List<DateTime> TaskDueTime
-        {
-            get
-            {
-                return taskDueTime;
-            }
-
-            set
-            {
-                taskDueTime = value;
-            }
-        }
 
     }
+    
 
     
 }

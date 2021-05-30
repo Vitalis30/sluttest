@@ -13,7 +13,7 @@ namespace sluttest
     public partial class Form1 : Form
     {
 
-        List<Member> users = new List<Member>();
+        BindingList<Member> users = new BindingList<Member>();
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +22,7 @@ namespace sluttest
             users.Add(new Member("vit03", "Vitalis Victorzon"));
 
             members_listbox.DataSource = users;
+            //tasks_n_time_bindingSource.DataSource = (Member)members_listbox.SelectedIndexChanged
         }
 
         private void add_member_Click(object sender, EventArgs e)
@@ -32,9 +33,28 @@ namespace sluttest
 
             if (dresult == DialogResult.OK)
             {
-                Member newuser = AddUser.newUser;
-                users.Add();
+                Member newuser = addUser.newUser;
+                users.Add(newuser);
             }
+        }
+
+        private void add_todo_Click(object sender, EventArgs e)
+        {
+            AddToDo addToDo = new AddToDo();
+
+            DialogResult dr = addToDo.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                Member u = (Member)members_listbox.SelectedValue;
+                //u.Tasks.Add(addToDo.task);
+            }
+        }
+
+        private void changeMember(object sender, EventArgs e)
+        {
+            Member temp = (Member)members_listbox.SelectedValue;
+            tasks_n_time_bindingSource.DataSource = temp.tasks;
         }
     }
 }
