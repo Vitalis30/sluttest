@@ -12,8 +12,9 @@ namespace sluttest
 {
     public partial class AddToDo : Form
     {
-        public string task;
-        public DateTime taskDue;
+        public TaskLista tlist;
+        string task;
+        DateTime taskDue;
         public AddToDo()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace sluttest
         {
             task = taskText_txtbox.Text;
             taskDue = dateTimePicker1.Value;
+            tlist = new TaskLista(task, taskDue);
             this.DialogResult = DialogResult.OK;
         }
     }

@@ -47,14 +47,15 @@ namespace sluttest
             if (dr == DialogResult.OK)
             {
                 Member u = (Member)members_listbox.SelectedValue;
-                //u.Tasks.Add(addToDo.task);
+                u.tasks.Add(addToDo.tlist);
             }
         }
 
         private void changeMember(object sender, EventArgs e)
         {
             Member temp = (Member)members_listbox.SelectedValue;
-            tasks_n_time_bindingSource.DataSource = temp.tasks;
+            taskListaBindingSource.DataSource = temp.tasks;
+            //todo_dataGridView.Refresh();//.Invalidate();
         }
     }
 }

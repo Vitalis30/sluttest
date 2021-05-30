@@ -11,7 +11,7 @@ namespace sluttest
     {
         private string username;
         private string realName;
-        public BindingList<TaskList> tasks = new BindingList<TaskList>();
+        public BindingList<TaskLista> tasks = new BindingList<TaskLista>();
         
 
         //Add new member

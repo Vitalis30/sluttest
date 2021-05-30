@@ -67,7 +67,7 @@
     <Compile Include="Member.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskList.cs" />
+    <Compile Include="TaskLista.cs" />
     <EmbeddedResource Include="AddToDo.resx">
       <DependentUpon>AddToDo.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +87,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\Member.datasource" />
+    <None Include="Properties\DataSources\TaskLista.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
