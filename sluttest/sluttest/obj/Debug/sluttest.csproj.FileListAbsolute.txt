@@ -10,3 +10,5 @@ C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sl
 C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.pdb
 C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.AddUser.resources
 C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.AddToDo.resources
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\bin\Debug\MySql.Data.DLL
+C:\Users\0230vivi\Dropbox\Programering 2\sluttest\sluttest\sluttest\obj\Debug\sluttest.csproj.CopyComplete

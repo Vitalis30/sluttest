@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace sluttest
@@ -17,12 +18,26 @@ namespace sluttest
         public Form1()
         {
             InitializeComponent();
-            users.Add(new Member("vit01", "Vitalis Victorzon"));
-            users.Add(new Member("vit02", "Vitalis Victorzon"));
-            users.Add(new Member("vit03", "Vitalis Victorzon"));
+            GetUsers();
 
             members_listbox.DataSource = users;
             //tasks_n_time_bindingSource.DataSource = (Member)members_listbox.SelectedIndexChanged
+        }
+
+        private void GetUsers()
+        {
+            MySqlConnection connection = OpenDataReader();
+
+            string sqlsats = "select Username, RLName from users";
+            MySqlCommand cmd = new MySqlCommand(sqlsats, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                users.Add(new Member(dataReader.GetString("Username"), dataReader.GetString("RLName")));
+            }
+
+            connection.Close();
         }
 
         private void add_member_Click(object sender, EventArgs e)
@@ -55,7 +70,13 @@ namespace sluttest
         {
             Member temp = (Member)members_listbox.SelectedValue;
             taskListaBindingSource.DataSource = temp.tasks;
-            //todo_dataGridView.Refresh();//.Invalidate();
+        }
+        private static MySqlConnection OpenDataReader()
+        {
+            string connectionString = "SERVER=localhost;DATABASE=todo;UID=root;PASSWORD=skola123";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            return connection;
         }
     }
 }
