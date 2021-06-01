@@ -96,12 +96,14 @@ namespace sluttest
             this.taskDataGridViewTextBoxColumn.DataPropertyName = "Task";
             this.taskDataGridViewTextBoxColumn.HeaderText = "Task";
             this.taskDataGridViewTextBoxColumn.Name = "taskDataGridViewTextBoxColumn";
+            this.taskDataGridViewTextBoxColumn.Width = 245;
             // 
             // dueDateDataGridViewTextBoxColumn
             // 
             this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
             this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
             this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dueDateDataGridViewTextBoxColumn.Width = 114;
             // 
             // Form1
             // 

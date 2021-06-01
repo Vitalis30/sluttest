@@ -18,23 +18,33 @@ namespace sluttest
         public Form1()
         {
             InitializeComponent();
-            GetUsers();
+
+            GetServerData("select Username, RLName from users", null);
 
             members_listbox.DataSource = users;
             //tasks_n_time_bindingSource.DataSource = (Member)members_listbox.SelectedIndexChanged
         }
 
-        private void GetUsers()
+        private void GetServerData(string sqlsats, Member member)
         {
             MySqlConnection connection = OpenDataReader();
 
-            string sqlsats = "select Username, RLName from users";
             MySqlCommand cmd = new MySqlCommand(sqlsats, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
-
-            while (dataReader.Read())
+            if (member==null)
             {
-                users.Add(new Member(dataReader.GetString("Username"), dataReader.GetString("RLName")));
+                while (dataReader.Read())
+                {
+                    users.Add(new Member(dataReader.GetString("Username"), dataReader.GetString("RLName")));
+                }
+            }
+            else
+            {
+                member.tasks.Clear();
+                while (dataReader.Read())
+                {
+                    member.tasks.Add(new TaskLista(dataReader.GetString("task"),dataReader.GetDateTime("dueDate")));
+                }
             }
 
             connection.Close();
@@ -49,8 +59,21 @@ namespace sluttest
             if (dresult == DialogResult.OK)
             {
                 Member newuser = addUser.newUser;
+                AddUserToServer(newuser);
                 users.Add(newuser);
             }
+        }
+
+        private static void AddUserToServer(Member newuser)
+        {
+            MySqlConnection connection = OpenDataReader();
+
+            string sqlsats = "Insert into users (Username, RLName) values (\'" + newuser.Username + "\',\'" + newuser.RealName + "\')";
+            MySqlCommand cmd = new MySqlCommand(sqlsats, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+
+            connection.Close();
         }
 
         private void add_todo_Click(object sender, EventArgs e)
@@ -61,15 +84,25 @@ namespace sluttest
 
             if (dr == DialogResult.OK)
             {
-                Member u = (Member)members_listbox.SelectedValue;
-                u.tasks.Add(addToDo.tlist);
+                Member member = (Member)members_listbox.SelectedValue;
+                addToDo.tlist.DueDate = addToDo.tlist.DueDate.Date;
+                MySqlConnection connection = OpenDataReader();
+
+                string sqlsats = "Insert into tasks (username, task, dueDate) values (\'" + member.Username + "\',\'" + addToDo.tlist.Task + "\',\'"+addToDo.tlist.DueDate+" \')";
+                MySqlCommand cmd = new MySqlCommand(sqlsats, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                connection.Close();
+                member.tasks.Add(addToDo.tlist);
             }
         }
 
         private void changeMember(object sender, EventArgs e)
         {
             Member temp = (Member)members_listbox.SelectedValue;
-            taskListaBindingSource.DataSource = temp.tasks;
+            taskListaBindingSource.DataSource = temp.tasks; 
+            GetServerData("select task, dueDate from tasks where username = \'" + temp.Username + "\'", temp);
+
         }
         private static MySqlConnection OpenDataReader()
         {

@@ -49,6 +49,7 @@ namespace sluttest
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(211, 20);
             this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 6, 1, 16, 53, 3, 0);
             // 
             // addTask_btn
             // 
